@@ -10,6 +10,7 @@ import {
   IonRefresherContent,
   IonTitle,
   IonToolbar,
+  IonSearchbar,
   useIonViewWillEnter
 } from '@ionic/react';
 import './Home.css';
@@ -33,7 +34,7 @@ const Home: React.FC = () => {
     <IonPage id="home-page">
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Inbox</IonTitle>
+          <IonSearchbar></IonSearchbar>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
