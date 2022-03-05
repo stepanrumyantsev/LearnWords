@@ -1,6 +1,7 @@
 import MessageListItem from '../components/MessageListItem';
 import { useState } from 'react';
 import { Message, getMessages } from '../data/messages';
+import AddWordFab from '../components/AddWordFab'
 import {
   IonContent,
   IonHeader,
@@ -32,6 +33,7 @@ const Home: React.FC = () => {
 
   return (
     <IonPage id="home-page">
+      <AddWordFab/>
       <IonHeader>
         <IonToolbar>
           <IonSearchbar></IonSearchbar>
