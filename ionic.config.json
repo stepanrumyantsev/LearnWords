@@ -1,0 +1,7 @@
+{
+  "name": "LearnWords",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
