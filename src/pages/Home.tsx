@@ -12,9 +12,12 @@ import {
   IonTitle,
   IonToolbar,
   IonSearchbar,
+  IonFabButton,
+  IonIcon,
   useIonViewWillEnter
 } from '@ionic/react';
 import './Home.css';
+import { addOutline } from "ionicons/icons";
 
 const Home: React.FC = () => {
 
@@ -33,7 +36,7 @@ const Home: React.FC = () => {
 
   return (
     <IonPage id="home-page">
-      <AddWordFab/>
+      <AddWordFab />
       <IonHeader>
         <IonToolbar>
           <IonSearchbar></IonSearchbar>

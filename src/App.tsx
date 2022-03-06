@@ -3,6 +3,7 @@ import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 import ViewMessage from './pages/ViewMessage';
+import AddWordPage from './pages/AddWordPage';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -36,8 +37,10 @@ const App: React.FC = () => (
           <Home />
         </Route>
         <Route path="/message/:id">
-           <ViewMessage />
+          <ViewMessage />
         </Route>
+
+        <Route exact path="/additem/:id" component={AddWordPage} />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>

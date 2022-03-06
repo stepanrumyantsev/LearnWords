@@ -12,10 +12,10 @@ const AddWordFab: React.FC = () => {
           <IonIcon icon={addOutline} />
         </IonFabButton>
         <IonFabList side="top">
-          <IonFabButton data-desc="Item" routerLink={`/additem/20`}>
+          <IonFabButton data-desc="Single Word" routerLink={`/additem/20`}>
             <IonIcon icon={pricetagOutline} />
           </IonFabButton>
-          <IonFabButton data-desc="Group" routerLink={`/addgroup/20`}>
+          <IonFabButton data-desc="Word Group" routerLink={`/addgroup/20`}>
             <IonIcon icon={pricetagsOutline} />
           </IonFabButton>
         </IonFabList>
