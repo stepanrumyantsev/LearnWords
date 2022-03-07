@@ -25,9 +25,11 @@ import { makeid } from "../generateId";
 const AddWordPage = () => {
     const history = useHistory();
     const { id } = useParams();
-    const [title, setTitle] = useState("");
+    const [input, setInput] = useState("");
+    const [output, setOutput] = useState("");
     //const [amount, setAmount] = useState(1.0);
-    //const [units, setUnits] = useState("piece(s)");
+    const [inputLanguage, setInputLanguage] = useState("DE");
+    const [outputLanguage, setOutputLanguage] = useState("EN");
     //const [notes, setNotes] = useState("");
     const { setUpdateWords } = useContext(UpdateWordsContext);
 
@@ -36,7 +38,9 @@ const AddWordPage = () => {
             id: makeid(16),
             type: "item",
             parent: id,
-            title: title,
+            input: input,
+            inputLanguage: inputLanguage,
+            outputLanguage: outputLanguage
 
         };
         let itemsHistory = [];
@@ -53,7 +57,9 @@ const AddWordPage = () => {
         const entryData = {
             id: makeid(16),
             type: "item",
-            title: title,
+            input: input,
+            inputLanguage: inputLanguage,
+            outputLanguage: outputLanguage
 
         };
 
@@ -75,7 +81,7 @@ const AddWordPage = () => {
                         <IonButtons slot="start">
                             <IonBackButton />
                         </IonButtons>
-                        <IonTitle>{title || ""}</IonTitle>
+                        <IonTitle>{input || ""}</IonTitle>
                         <IonButtons slot="end">
                             <IonButton onClick={() => { }}>
                                 <IonIcon icon={trashOutline} slot="icon-only" />
@@ -86,11 +92,28 @@ const AddWordPage = () => {
 
                 <IonContent className="ion-padding">
                     <IonItem>
-                        <IonLabel position="fixed">Item Name: </IonLabel>
+                        <IonLabel position="fixed">Original: </IonLabel>
+                        <IonSelect value={inputLanguage} placeholder="Select One" onIonChange={e => setInputLanguage(e.detail.value)}>
+                            <IonSelectOption value="DE">DE</IonSelectOption>
+                            <IonSelectOption value="EN(s)">EN</IonSelectOption>
+                        </IonSelect>
                         <IonInput
-                            placeholder={"Type item name"}
-                            value={title || ""} className={"ion-text-right"}
-                            onIonChange={(event) => setTitle(event.detail.value)}
+                            placeholder={"Type word or sentence"}
+                            value={input || ""} className={"ion-text-right"}
+                            onIonChange={(event) => setInput(event.detail.value)}
+                        />
+                    </IonItem>
+
+                    <IonItem>
+                        <IonLabel position="fixed">Translation: </IonLabel>
+                        <IonSelect value={outputLanguage} placeholder="Select One" onIonChange={e => setOutputLanguage(e.detail.value)}>
+                            <IonSelectOption value="DE">DE</IonSelectOption>
+                            <IonSelectOption value="EN">EN</IonSelectOption>
+                        </IonSelect>
+                        <IonInput
+                            placeholder={"Translation"}
+                            value={output || ""} className={"ion-text-right"}
+                            onIonChange={(event) => setOutput(event.detail.value)}
                         />
                     </IonItem>
 
