@@ -19,8 +19,8 @@ import {
 import { saveOutline, trashOutline } from "ionicons/icons";
 import React, { useState, useContext } from "react";
 import { useHistory, useParams } from "react-router";
-//import { UpdateItemsContext } from "../UpdateItemsContext";
-//import { makeid } from "../generateId";
+import { UpdateWordsContext } from "../UpdateWordsContext";
+import { makeid } from "../generateId";
 
 const AddWordPage = () => {
     const history = useHistory();
@@ -29,11 +29,11 @@ const AddWordPage = () => {
     //const [amount, setAmount] = useState(1.0);
     //const [units, setUnits] = useState("piece(s)");
     //const [notes, setNotes] = useState("");
-    //const { setUpdateItems } = useContext(UpdateItemsContext);
+    const { setUpdateWords } = useContext(UpdateWordsContext);
 
     const handleCheck = (id, Location) => {
         const entryData = {
-            id: "ddd",
+            id: makeid(16),
             type: "item",
             parent: id,
             title: title,
@@ -51,18 +51,18 @@ const AddWordPage = () => {
 
     const handleSave = async (id) => {
         const entryData = {
-            id: "ddf",
+            id: makeid(16),
             type: "item",
             title: title,
 
         };
 
         let itemsHistory = [];
-        if (localStorage.getItem("itemsHistory") !== null) {
-            itemsHistory = JSON.parse(localStorage.getItem("itemsHistory"));
+        if (localStorage.getItem("dictionary") !== null) {
+            itemsHistory = JSON.parse(localStorage.getItem("dictionary"));
         }
         itemsHistory.push(entryData);
-        localStorage.setItem("itemsHistory", JSON.stringify(itemsHistory));
+        localStorage.setItem("dictionary", JSON.stringify(itemsHistory));
 
         history.goBack();
     };
@@ -100,8 +100,8 @@ const AddWordPage = () => {
 
                 <IonButton style={{ marginBottom: '20px' }}
                     onClick={() => {
-                        handleCheck(id, "itemsHistory");
-                        //setUpdateItems(makeid(16));
+                        handleCheck(id, "dictionary");
+                        setUpdateWords(makeid(16));
                     }}
                 >
                     <IonIcon icon={saveOutline} />

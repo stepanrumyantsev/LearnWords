@@ -4,6 +4,8 @@ import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 import ViewMessage from './pages/ViewMessage';
 import AddWordPage from './pages/AddWordPage';
+import { UpdateWordsContext } from "./UpdateWordsContext";
+import { useState } from "react";
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -26,24 +28,35 @@ import './theme/variables.css';
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route path="/" exact={true}>
-          <Redirect to="/home" />
-        </Route>
-        <Route path="/home" exact={true}>
-          <Home />
-        </Route>
-        <Route path="/message/:id">
-          <ViewMessage />
-        </Route>
+const App = () => {
+  const [UpdateItems, setUpdateItems] = useState();
+  const value = {
+    UpdateItems,
+    setUpdateItems,
+  };
 
-        <Route exact path="/additem/:id" component={AddWordPage} />
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-);
+  return (
+
+    <IonApp>
+      <UpdateWordsContext.Provider value={value}>
+        <IonReactRouter>
+          <IonRouterOutlet>
+            <Route path="/" exact={true}>
+              <Redirect to="/home" />
+            </Route>
+            <Route path="/home" exact={true}>
+              <Home />
+            </Route>
+            <Route path="/message/:id">
+              <ViewMessage />
+            </Route>
+
+            <Route exact path="/additem/:id" component={AddWordPage} />
+          </IonRouterOutlet>
+        </IonReactRouter>
+      </UpdateWordsContext.Provider>
+    </IonApp>
+  );
+}
 
 export default App;
