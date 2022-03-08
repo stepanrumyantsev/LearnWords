@@ -18,21 +18,10 @@ import {
 } from '@ionic/react';
 import './Home.css';
 import { addOutline } from "ionicons/icons";
+import MainWordsList from '../components/MainWordsList';
 
-const Home: React.FC = () => {
+const Home = () => {
 
-  const [messages, setMessages] = useState<Message[]>([]);
-
-  useIonViewWillEnter(() => {
-    const msgs = getMessages();
-    setMessages(msgs);
-  });
-
-  const refresh = (e: CustomEvent) => {
-    setTimeout(() => {
-      e.detail.complete();
-    }, 3000);
-  };
 
   return (
     <IonPage id="home-page">
@@ -43,10 +32,6 @@ const Home: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <IonRefresher slot="fixed" onIonRefresh={refresh}>
-          <IonRefresherContent></IonRefresherContent>
-        </IonRefresher>
-
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">
@@ -55,9 +40,7 @@ const Home: React.FC = () => {
           </IonToolbar>
         </IonHeader>
 
-        <IonList>
-          {messages.map(m => <MessageListItem key={m.id} message={m} />)}
-        </IonList>
+
       </IonContent>
     </IonPage>
   );
