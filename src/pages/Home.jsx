@@ -22,7 +22,9 @@ import MainWordsList from '../components/MainWordsList';
 
 const Home = () => {
 
-
+  const items = JSON.parse(localStorage.getItem("dictionary"))
+    ? JSON.parse(localStorage.getItem("dictionary"))
+    : [{}];
   return (
     <IonPage id="home-page">
       <AddWordFab />
@@ -39,7 +41,7 @@ const Home = () => {
             </IonTitle>
           </IonToolbar>
         </IonHeader>
-
+        <MainWordsList items={items} />
 
       </IonContent>
     </IonPage>

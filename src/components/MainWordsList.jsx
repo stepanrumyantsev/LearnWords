@@ -26,7 +26,7 @@ import { findByLabelText } from "@testing-library/react";
 const MainWordsList = (props) => {
     const { UpdateWords, setUpdateWords } = useContext(UpdateWordsContext);
 
-    if (!localStorage.getItem("itemsHistory") || localStorage.getItem("itemsHistory") === "[]") {
+    if (!localStorage.getItem("dictionary") || localStorage.getItem("dictionary") === "[]") {
         return <ExploreContainer />;
     }
 
@@ -47,7 +47,7 @@ const MainWordsList = (props) => {
 
     const countChildren = (id) => {
         let counter = 0;
-        const items = JSON.parse(localStorage.getItem("itemsHistory") || "{}");
+        const items = JSON.parse(localStorage.getItem("dictionary") || "{}");
 
         if (items.length) {
             items.forEach(function (index, value) {
@@ -64,7 +64,7 @@ const MainWordsList = (props) => {
     const areAllChildrenChecked = (id) => {
         let allChecked = true;
         let counter = 0;
-        const items = JSON.parse(localStorage.getItem("itemsHistory") || "{}");
+        const items = JSON.parse(localStorage.getItem("dictionary") || "{}");
 
         if (items.length) {
             items.forEach(function (index, value) {
@@ -115,7 +115,7 @@ const MainWordsList = (props) => {
                             color="danger"
                             onClick={() => {
 
-                                handleDelete(item.id, "itemsHistory");
+                                handleDelete(item.id, "dictionary");
                                 setUpdateWords(makeid(16));
 
                             }}
@@ -128,7 +128,7 @@ const MainWordsList = (props) => {
                         <IonItemOption
                             color={item.checked === "true" ? "warning" : "success"}
                             onClick={() => {
-                                handleCheck(item.id, "itemsHistory");
+                                handleCheck(item.id, "dictionary");
                                 setUpdateWords(makeid(16));
                             }}
                         >
@@ -152,10 +152,10 @@ const MainWordsList = (props) => {
                         </IonThumbnail>
                         <IonLabel>
                             <h2>
-                                {item.checked === "true" || areAllChildrenChecked(item.id) ? <s> {item.title} </s> : item.title}
+                                {item.input}
                             </h2>
 
-                            <p>{item.type === "group" ? "items: " + countChildren(item.id) : item.amount + " " + item.units}</p>
+                            <p>{item.type === "group" ? "items: " + countChildren(item.id) : item.input + " " + item.inputLanguage}</p>
                         </IonLabel>
                     </IonItem>
                 </IonItemSliding>
