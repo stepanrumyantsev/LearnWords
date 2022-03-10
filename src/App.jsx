@@ -29,10 +29,10 @@ import './theme/variables.css';
 setupIonicReact();
 
 const App = () => {
-  const [UpdateItems, setUpdateItems] = useState();
+  const [UpdateWords, setUpdateWords] = useState();
   const value = {
-    UpdateItems,
-    setUpdateItems,
+    UpdateWords,
+    setUpdateWords,
   };
 
   return (
