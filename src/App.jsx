@@ -4,6 +4,7 @@ import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 import ViewMessage from './pages/ViewMessage';
 import AddWordPage from './pages/AddWordPage';
+import AddGroupPage from './pages/AddGroupPage';
 import { UpdateWordsContext } from "./UpdateWordsContext";
 import { useState } from "react";
 
@@ -52,6 +53,7 @@ const App = () => {
             </Route>
 
             <Route exact path="/additem/:id" component={AddWordPage} />
+            <Route exact path="/addgroup/:id" component={AddGroupPage} />
           </IonRouterOutlet>
         </IonReactRouter>
       </UpdateWordsContext.Provider>
