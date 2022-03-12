@@ -85,7 +85,18 @@ const Home = () => {
       <AddWordFab />
       <IonHeader>
         <IonToolbar>
-          <IonSearchbar></IonSearchbar>
+          <IonSearchbar placeholder="Search"
+            value={searchText}
+            onIonChange={(e) => {
+              setSearchText(e.detail.value);
+              setFilteredWords(
+                filterByValue(
+                  items,
+                  e.detail.value
+                )
+              );
+            }}
+            showCancelButton="never"></IonSearchbar>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>

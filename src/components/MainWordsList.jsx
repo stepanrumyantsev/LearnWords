@@ -124,20 +124,6 @@ const MainWordsList = (props) => {
                             <IonIcon icon={trashIcon} slot="icon-only" />
                         </IonItemOption>
                     </IonItemOptions>
-                    <IonItemOptions side="end">
-                        <IonItemOption
-                            color={item.checked === "true" ? "warning" : "success"}
-                            onClick={() => {
-                                handleCheck(item.id, "dictionary");
-                                setUpdateWords(makeid(16));
-                            }}
-                        >
-                            <IonIcon
-                                icon={item.checked === "true" ? undoIcon : checkmarkIcon}
-                                slot="icon-only"
-                            />
-                        </IonItemOption>
-                    </IonItemOptions>
                     <IonItem
 
                         lines={"none"}
