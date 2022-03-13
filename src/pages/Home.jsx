@@ -1,23 +1,15 @@
-import MessageListItem from '../components/MessageListItem';
 import { useState, useContext, useEffect } from 'react';
-import { Message, getMessages } from '../data/messages';
 import AddWordFab from '../components/AddWordFab'
 import {
   IonContent,
   IonHeader,
-  IonList,
   IonPage,
-  IonRefresher,
-  IonRefresherContent,
   IonTitle,
   IonToolbar,
-  IonSearchbar,
-  IonFabButton,
-  IonIcon,
-  useIonViewWillEnter
+  IonSearchbar
 } from '@ionic/react';
 import './Home.css';
-import { addOutline } from "ionicons/icons";
+//import { addOutline } from "ionicons/icons";
 import MainWordsList from '../components/MainWordsList';
 import { UpdateWordsContext } from '../UpdateWordsContext'
 
