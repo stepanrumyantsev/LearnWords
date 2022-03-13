@@ -21,8 +21,22 @@ import React, { useState, useContext } from "react";
 import { useHistory, useParams } from "react-router";
 import { UpdateWordsContext } from "../UpdateWordsContext";
 import { makeid } from "../generateId";
+import axios from 'axios';
 
 const AddWordPage = () => {
+    const url = "https://jsonplaceholder.typicode.com/posts";
+    const user = {
+        name: "Said",
+        id: 21
+    };
+    axios({
+        method: "post",
+        url: url,
+        data: { user }
+    }).then(data => console.log(data)).catch(err => console.log(err));
+
+
+
     const history = useHistory();
     const { id } = useParams();
     const [input, setInput] = useState("");
