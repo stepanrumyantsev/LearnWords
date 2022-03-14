@@ -27,7 +27,7 @@ const AddGroupPage = () => {
         const entryData = {
             id: makeid(16),
             type: "group",
-            title: title,
+            input: title,
             checked: "false",
             children: [],
             parent: ""
