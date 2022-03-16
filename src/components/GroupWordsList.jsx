@@ -12,7 +12,7 @@ import {
 } from "@ionic/react";
 import priceTag from "../res/pricetag-outline.svg";
 import priceTags from "../res/pricetags-outline.svg";
-import "./GroupShoppingList.css";
+import "./GroupWordsList.css";
 import ExploreContainer from "./ExploreContainer";
 import {
     trash as trashIcon,
@@ -23,7 +23,7 @@ import { makeid } from "../generateId";
 import { UpdateWordsContext } from "../UpdateWordsContext";
 
 const GroupWordsList = (props) => {
-    const { UpdateItems, setUpdateItems } = useContext(UpdateWordsContext);
+    const { UpdateWords, setUpdateWords } = useContext(UpdateWordsContext);
     if (!localStorage.getItem("dictionary")) {
         return <ExploreContainer />;
     }
