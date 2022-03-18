@@ -22,18 +22,27 @@ import { useHistory, useParams } from "react-router";
 import { UpdateWordsContext } from "../UpdateWordsContext";
 import { makeid } from "../generateId";
 import axios from 'axios';
+import deepl from "deepl"
 
 const AddWordPage = () => {
-    const url = "https://jsonplaceholder.typicode.com/posts";
-    const user = {
-        name: "Said",
-        id: 21
-    };
-    axios({
-        method: "post",
-        url: url,
-        data: { user }
-    }).then(data => console.log(data)).catch(err => console.log(err));
+
+    const translate = require("deepl");
+
+    translate({
+        free_api: true,
+        text: 'I am a text',
+        target_lang: 'FR',
+        auth_key: '9eb0ef9f-e4b3-7de8-bacf-e5c527362378:fx',
+        // All optional parameters available in the official documentation can be defined here as well.
+    })
+        .then(result => {
+            console.log(result.data);
+        })
+        .catch(error => {
+            console.error(error)
+        });
+
+
 
 
 
