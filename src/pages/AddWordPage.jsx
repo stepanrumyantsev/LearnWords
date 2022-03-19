@@ -17,7 +17,7 @@ import {
     IonItemDivider
 } from "@ionic/react";
 import { saveOutline, trashOutline } from "ionicons/icons";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useHistory, useParams } from "react-router";
 import { UpdateWordsContext } from "../UpdateWordsContext";
 import { makeid } from "../generateId";
@@ -26,21 +26,10 @@ import deepl from "deepl"
 
 const AddWordPage = () => {
 
+
     const translate = require("deepl");
 
-    translate({
-        free_api: true,
-        text: 'I am a text',
-        target_lang: 'FR',
-        auth_key: '9eb0ef9f-e4b3-7de8-bacf-e5c527362378:fx',
-        // All optional parameters available in the official documentation can be defined here as well.
-    })
-        .then(result => {
-            console.log(result.data);
-        })
-        .catch(error => {
-            console.error(error)
-        });
+
 
 
 
@@ -55,6 +44,24 @@ const AddWordPage = () => {
     const [outputLanguage, setOutputLanguage] = useState("EN");
     //const [notes, setNotes] = useState("");
     const { setUpdateWords } = useContext(UpdateWordsContext);
+
+    useEffect(() => {
+        translate({
+            free_api: true,
+            text: input,
+            target_lang: 'FR',
+            auth_key: '9eb0ef9f-e4b3-7de8-bacf-e5c527362378:fx',
+            // All optional parameters available in the official documentation can be defined here as well.
+        })
+            .then(result => {
+                console.log(result.data.translations[0]);
+                setOutput(result.data.translations[0].text);
+            })
+            .catch(error => {
+                console.error(error)
+            });
+    }, [input]
+    );
 
     const handleCheck = (id, Location) => {
         const entryData = {
