@@ -29,12 +29,6 @@ const AddWordPage = () => {
 
     const translate = require("deepl");
 
-
-
-
-
-
-
     const history = useHistory();
     const { id } = useParams();
     const [input, setInput] = useState("");
@@ -49,7 +43,8 @@ const AddWordPage = () => {
         translate({
             free_api: true,
             text: input,
-            target_lang: 'FR',
+            source_lang: inputLanguage,
+            target_lang: outputLanguage,
             auth_key: '9eb0ef9f-e4b3-7de8-bacf-e5c527362378:fx',
             // All optional parameters available in the official documentation can be defined here as well.
         })
@@ -60,7 +55,7 @@ const AddWordPage = () => {
             .catch(error => {
                 console.error(error)
             });
-    }, [input]
+    }, [input, inputLanguage, outputLanguage]
     );
 
     const handleCheck = (id, Location) => {
@@ -125,7 +120,7 @@ const AddWordPage = () => {
                         <IonLabel position="fixed">Original: </IonLabel>
                         <IonSelect value={inputLanguage} placeholder="Select One" onIonChange={e => setInputLanguage(e.detail.value)}>
                             <IonSelectOption value="DE">DE</IonSelectOption>
-                            <IonSelectOption value="EN(s)">EN</IonSelectOption>
+                            <IonSelectOption value="EN">EN</IonSelectOption>
                         </IonSelect>
                         <IonInput
                             placeholder={"Type word or sentence"}
