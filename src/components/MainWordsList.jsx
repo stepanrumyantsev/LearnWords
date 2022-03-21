@@ -138,10 +138,10 @@ const MainWordsList = (props) => {
                         </IonThumbnail>
                         <IonLabel>
                             <h2>
-                                {item.input}
+                                {item.type === "group" ? item.input : item.input + " " + item.inputLanguage + " => " + item.output + " " + item.outputLanguage}
                             </h2>
 
-                            <p>{item.type === "group" ? "items: " + countChildren(item.id) : item.input + " " + item.inputLanguage}</p>
+                            <p>{item.type === "group" ? "items: " + countChildren(item.id) : item.input + " " + item.inputLanguage + "=>" + item.output + " " + item.outputLanguage}</p>
                         </IonLabel>
                     </IonItem>
                 </IonItemSliding>

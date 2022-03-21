@@ -64,6 +64,7 @@ const AddWordPage = () => {
             type: "item",
             parent: id,
             input: input,
+            output: output,
             inputLanguage: inputLanguage,
             outputLanguage: outputLanguage
 
@@ -83,6 +84,7 @@ const AddWordPage = () => {
             id: makeid(16),
             type: "item",
             input: input,
+            output: output,
             inputLanguage: inputLanguage,
             outputLanguage: outputLanguage
 
@@ -119,8 +121,8 @@ const AddWordPage = () => {
                     <IonItem>
                         <IonLabel position="fixed">Original: </IonLabel>
                         <IonSelect value={inputLanguage} placeholder="Select One" onIonChange={e => setInputLanguage(e.detail.value)}>
-                            <IonSelectOption value="DE">DE</IonSelectOption>
-                            <IonSelectOption value="EN">EN</IonSelectOption>
+                            <IonSelectOption value="DE">&#127465; &#127466; DE</IonSelectOption>
+                            <IonSelectOption value="EN">&#127468; &#127463; EN</IonSelectOption>
                         </IonSelect>
                         <IonInput
                             placeholder={"Type word or sentence"}
@@ -132,8 +134,8 @@ const AddWordPage = () => {
                     <IonItem>
                         <IonLabel position="fixed">Translation: </IonLabel>
                         <IonSelect value={outputLanguage} placeholder="Select One" onIonChange={e => setOutputLanguage(e.detail.value)}>
-                            <IonSelectOption value="DE">DE</IonSelectOption>
-                            <IonSelectOption value="EN">EN</IonSelectOption>
+                            <IonSelectOption value="DE">&#127465; &#127466; DE</IonSelectOption>
+                            <IonSelectOption value="EN">&#127468; &#127463; EN</IonSelectOption>
                         </IonSelect>
                         <IonInput
                             placeholder={"Translation"}
