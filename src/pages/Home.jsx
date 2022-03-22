@@ -12,6 +12,7 @@ import './Home.css';
 //import { addOutline } from "ionicons/icons";
 import MainWordsList from '../components/MainWordsList';
 import { UpdateWordsContext } from '../UpdateWordsContext'
+import { PopOverHome } from '../components/PopOverHome';
 
 const Home = () => {
   let initialWordsState = JSON.parse(localStorage.getItem("dictionary"));
@@ -89,6 +90,7 @@ const Home = () => {
               );
             }}
             showCancelButton="never"></IonSearchbar>
+          <PopOverHome />
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
