@@ -34,10 +34,11 @@ const AddWordPage = () => {
     const [input, setInput] = useState("");
     const [output, setOutput] = useState("");
     //const [amount, setAmount] = useState(1.0);
-    const [inputLanguage, setInputLanguage] = useState("DE");
-    const [outputLanguage, setOutputLanguage] = useState("EN");
+    const [inputLanguage, setInputLanguage] = useState(localStorage.getItem("inputLang") ? localStorage.getItem("inputLang") : "DE");
+    const [outputLanguage, setOutputLanguage] = useState(localStorage.getItem("outputLang") ? localStorage.getItem("outputLang") : "EN");
     //const [notes, setNotes] = useState("");
     const { setUpdateWords } = useContext(UpdateWordsContext);
+
 
     useEffect(() => {
         translate({
@@ -120,7 +121,7 @@ const AddWordPage = () => {
                 <IonContent className="ion-padding">
                     <IonItem>
                         <IonLabel position="fixed">Original: </IonLabel>
-                        <IonSelect value={inputLanguage} placeholder="Select One" onIonChange={e => setInputLanguage(e.detail.value)}>
+                        <IonSelect value={inputLanguage} placeholder="Select One" onIonChange={e => { setInputLanguage(e.detail.value); localStorage.setItem("inputLang", e.detail.value) }}>
                             <IonSelectOption value="DE">&#127465; &#127466; DE</IonSelectOption>
                             <IonSelectOption value="EN">&#127468; &#127463; EN</IonSelectOption>
                         </IonSelect>
@@ -133,7 +134,7 @@ const AddWordPage = () => {
 
                     <IonItem>
                         <IonLabel position="fixed">Translation: </IonLabel>
-                        <IonSelect value={outputLanguage} placeholder="Select One" onIonChange={e => setOutputLanguage(e.detail.value)}>
+                        <IonSelect value={outputLanguage} placeholder="Select One" onIonChange={e => { setOutputLanguage(e.detail.value); localStorage.setItem("outputLang", e.detail.value) }}>
                             <IonSelectOption value="DE">&#127465; &#127466; DE</IonSelectOption>
                             <IonSelectOption value="EN">&#127468; &#127463; EN</IonSelectOption>
                         </IonSelect>
