@@ -124,6 +124,8 @@ const AddWordPage = () => {
                         <IonSelect value={inputLanguage} placeholder="Select One" onIonChange={e => { setInputLanguage(e.detail.value); localStorage.setItem("inputLang", e.detail.value) }}>
                             <IonSelectOption value="DE">&#127465; &#127466; DE</IonSelectOption>
                             <IonSelectOption value="EN">&#127468; &#127463; EN</IonSelectOption>
+                            <IonSelectOption value="ES">&#127466; &#127480; ES</IonSelectOption>
+                            <IonSelectOption value="RU">&#127479; &#127482; RU</IonSelectOption>
                         </IonSelect>
                         <IonInput
                             placeholder={"Type word or sentence"}
@@ -137,6 +139,8 @@ const AddWordPage = () => {
                         <IonSelect value={outputLanguage} placeholder="Select One" onIonChange={e => { setOutputLanguage(e.detail.value); localStorage.setItem("outputLang", e.detail.value) }}>
                             <IonSelectOption value="DE">&#127465; &#127466; DE</IonSelectOption>
                             <IonSelectOption value="EN">&#127468; &#127463; EN</IonSelectOption>
+                            <IonSelectOption value="ES">&#127466; &#127480; ES</IonSelectOption>
+                            <IonSelectOption value="RU">&#127479; &#127482; RU</IonSelectOption>
                         </IonSelect>
                         <IonInput
                             placeholder={"Translation"}
