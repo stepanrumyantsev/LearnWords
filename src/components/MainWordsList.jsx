@@ -141,7 +141,7 @@ const MainWordsList = (props) => {
                                 {item.type === "group" ? item.input : item.input + " " + item.inputLanguage + " => " + item.output + " " + item.outputLanguage}
                             </h2>
 
-                            <p>{item.type === "group" ? "items: " + countChildren(item.id) : item.input + " " + item.inputLanguage + "=>" + item.output + " " + item.outputLanguage}</p>
+                            <p>{item.type === "group" ? "items: " + countChildren(item.id) : ""}</p>
                         </IonLabel>
                     </IonItem>
                 </IonItemSliding>

@@ -102,7 +102,7 @@ const GroupWordsList = (props) => {
                                 {item.type === "group" ? item.input : item.input + " " + item.inputLanguage + " => " + item.output + " " + item.outputLanguage}
                             </h2>
 
-                            <p>{item.type === "group" ? "" : item.amount + " " + item.units}</p>
+
 
 
                         </IonLabel>
