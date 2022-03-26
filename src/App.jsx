@@ -9,6 +9,8 @@ import { UpdateWordsContext } from "./UpdateWordsContext";
 import { useState } from "react";
 import GroupPage from './pages/GroupPage';
 import WordPage from './pages/WordPage';
+import SettingsPage from './pages/SettingsPage';
+import AboutPage from './pages/AboutPage';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -58,6 +60,8 @@ const App = () => {
             <Route exact path="/addgroup/:id" component={AddGroupPage} />
             <Route exact path="/group/:id" component={GroupPage} />
             <Route exact path="/item/:id" component={WordPage} />
+            <Route exact path="/settings/" component={SettingsPage} />
+            <Route exact path="/about/" component={AboutPage} />
           </IonRouterOutlet>
         </IonReactRouter>
       </UpdateWordsContext.Provider>
