@@ -45,6 +45,32 @@ const MainWordsList = (props) => {
         }
     };
 
+    const langToFlag = (lang) => {
+        let flag = "";
+        switch (lang) {
+            case "EN":
+                return <span> &#127468; &#127463; </span>;
+
+            case "DE":
+                return <span>&#127465; &#127466; </span>;
+
+            case "RU":
+                return <span> &#127479; &#127482; </span>;
+
+            case "ES":
+                return <span>&#127466; &#127480;</span>;
+
+
+
+            default:
+                return "";
+        }
+
+
+
+
+    }
+
     const countChildren = (id) => {
         let counter = 0;
         const items = JSON.parse(localStorage.getItem("dictionary") || "{}");
@@ -136,13 +162,28 @@ const MainWordsList = (props) => {
                         <IonThumbnail slot="start" className={"thumbnail"}>
                             <IonIcon size={"large"} icon={item.type === "group" ? priceTags : priceTag} />
                         </IonThumbnail>
-                        <IonLabel>
+                        {item.type === "group" && <IonLabel>
                             <h2>
-                                {item.type === "group" ? item.input : item.input + " " + item.inputLanguage + " => " + item.output + " " + item.outputLanguage}
+                                {item.input}
+
                             </h2>
 
-                            <p>{item.type === "group" ? "items: " + countChildren(item.id) : ""}</p>
-                        </IonLabel>
+                            <p>{"items: " + countChildren(item.id)}</p>
+                        </IonLabel>}
+
+                        {item.type === "item" &&
+                            <IonLabel>
+                                <h2>
+                                    {langToFlag(item.inputLanguage)}
+                                    {item.input}
+                                    {" => "}
+                                    {langToFlag(item.outputLanguage)}
+                                    {item.output}
+                                </h2>
+
+
+                            </IonLabel>
+                        }
                     </IonItem>
                 </IonItemSliding>
             ))}
