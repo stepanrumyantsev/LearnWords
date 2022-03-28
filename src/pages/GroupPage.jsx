@@ -20,6 +20,7 @@ import { useHistory, useParams } from "react-router";
 import { makeid } from "../generateId";
 import { UpdateWordsContext } from "../UpdateWordsContext";
 import GroupWordsList from "../components/GroupWordsList";
+import MainWordsList from "../components/MainWordsList";
 
 const GroupPage = () => {
 
@@ -93,7 +94,7 @@ const GroupPage = () => {
                 </IonHeader>
 
                 <IonContent className="ion-padding">
-                    <GroupWordsList items={children} />
+                    <MainWordsList items={children} />
                 </IonContent>
             </IonPage>
         </div>
