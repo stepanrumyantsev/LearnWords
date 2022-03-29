@@ -154,7 +154,7 @@ const MainWordsList = (props) => {
 
                         lines={"none"}
 
-                        {...(item.type === "group" ? { routerLink: `/group/${item.id}`, button: true } : { routerLink: `/item/${item.id}` })}
+                        {...(item.type === "group" && { routerLink: `/group/${item.id}`, button: true })}
                         {...((item.type === "item" && isPlatform("ios")) ? { button: false } : { button: true })}
 
 
