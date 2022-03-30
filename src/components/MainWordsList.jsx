@@ -37,11 +37,24 @@ const MainWordsList = (props) => {
         const items = JSON.parse(localStorage.getItem(Location) || "{}");
         if (items.length) {
             items.forEach(function (index, value) {
-                if (items[value].id.includes(id) || items[value].parent.includes(id)) {
+
+                if (items[value].id.includes(id)) {
+                    console.log(items[value])
                     items.splice(value, 1);
-                    localStorage.setItem(Location, JSON.stringify(items));
+
                 }
             });
+
+            items.forEach(function (index, value) {
+
+                if (items[value].parent.includes(id)) {
+                    console.log(items[value])
+                    items.splice(value, 1);
+
+                }
+            });
+
+            localStorage.setItem(Location, JSON.stringify(items));
         }
     };
 
