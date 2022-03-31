@@ -13,6 +13,9 @@ import {
     IonInput,
 } from "@ionic/react";
 import { saveOutline, trashOutline } from "ionicons/icons";
+import { Redirect, Route } from 'react-router-dom';
+import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { IonReactRouter } from '@ionic/react-router';
 import React, { useState, useContext } from "react";
 import { useHistory, useParams } from "react-router";
 import { makeid } from "../generateId";
@@ -22,6 +25,7 @@ const AddGroupPage = () => {
     const history = useHistory();
     const [title, setTitle] = useState("");
     const { setUpdateWords } = useContext(UpdateWordsContext);
+
 
     const handleSave = async () => {
         const entryData = {
@@ -40,7 +44,8 @@ const AddGroupPage = () => {
         itemsHistory.push(entryData);
         localStorage.setItem("dictionary", JSON.stringify(itemsHistory));
 
-        history.goBack();
+        //history.goBack();
+        history.push(`/group/${entryData.id}`);
     };
 
     return (
