@@ -21,6 +21,7 @@ import { makeid } from "../generateId";
 import { UpdateWordsContext } from "../UpdateWordsContext";
 import GroupWordsList from "../components/GroupWordsList";
 import MainWordsList from "../components/MainWordsList";
+import { arrowBackOutline } from "ionicons/icons";
 
 const GroupPage = () => {
 
@@ -86,7 +87,10 @@ const GroupPage = () => {
                 <IonHeader>
                     <IonToolbar>
                         <IonButtons slot="start">
-                            <IonBackButton />
+                            <IonButton routerLink={`/home/`}>
+                                <IonIcon icon={arrowBackOutline}></IonIcon>
+
+                            </IonButton>
                         </IonButtons>
                         <IonTitle>{item.input || ""}</IonTitle>
 

@@ -62,6 +62,7 @@ const App = () => {
             <Route exact path="/item/:id" component={WordPage} />
             <Route exact path="/settings/" component={SettingsPage} />
             <Route exact path="/about/" component={AboutPage} />
+            <Route exact path="/home/" component={Home} />
           </IonRouterOutlet>
         </IonReactRouter>
       </UpdateWordsContext.Provider>
