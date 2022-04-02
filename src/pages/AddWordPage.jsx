@@ -38,6 +38,8 @@ const AddWordPage = () => {
     const [outputLanguage, setOutputLanguage] = useState(localStorage.getItem("outputLang") ? localStorage.getItem("outputLang") : "EN");
     //const [notes, setNotes] = useState("");
     const { setUpdateWords } = useContext(UpdateWordsContext);
+    const [group, setGroup] = useState();
+    const items = JSON.parse(localStorage.getItem("dictionary") || "{}");
 
 
     useEffect(() => {
@@ -148,6 +150,20 @@ const AddWordPage = () => {
                             onIonChange={(event) => setOutput(event.detail.value)}
                         />
                     </IonItem>
+
+
+                    <IonItem>
+                        <IonLabel>Group</IonLabel>
+
+                        <IonSelect value={group} placeholder="Select One" onIonChange={e => setGroup(e.detail.value)}>
+                            {items.map((item) => (<IonSelectOption value="female">{item.input}</IonSelectOption>
+
+                            ))};
+
+
+                        </IonSelect>
+                    </IonItem>
+
 
 
 
