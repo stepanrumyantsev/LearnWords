@@ -33,12 +33,13 @@ const AddWordPage = () => {
     const { id } = useParams();
     const [input, setInput] = useState("");
     const [output, setOutput] = useState("");
+    const [parent, setParent] = useState(id);
     //const [amount, setAmount] = useState(1.0);
     const [inputLanguage, setInputLanguage] = useState(localStorage.getItem("inputLang") ? localStorage.getItem("inputLang") : "DE");
     const [outputLanguage, setOutputLanguage] = useState(localStorage.getItem("outputLang") ? localStorage.getItem("outputLang") : "EN");
     //const [notes, setNotes] = useState("");
     const { setUpdateWords } = useContext(UpdateWordsContext);
-    const [group, setGroup] = useState();
+    const [group, setGroup] = useState(id);
     const items = JSON.parse(localStorage.getItem("dictionary") || "{}");
 
 
@@ -61,11 +62,11 @@ const AddWordPage = () => {
     }, [input, inputLanguage, outputLanguage]
     );
 
-    const handleCheck = (id, Location) => {
+    const handleSave = (id, Location) => {
         const entryData = {
             id: makeid(16),
             type: "item",
-            parent: id,
+            parent: group,
             input: input,
             output: output,
             inputLanguage: inputLanguage,
@@ -82,26 +83,6 @@ const AddWordPage = () => {
         history.goBack();
     };
 
-    const handleSave = async (id) => {
-        const entryData = {
-            id: makeid(16),
-            type: "item",
-            input: input,
-            output: output,
-            inputLanguage: inputLanguage,
-            outputLanguage: outputLanguage
-
-        };
-
-        let itemsHistory = [];
-        if (localStorage.getItem("dictionary") !== null) {
-            itemsHistory = JSON.parse(localStorage.getItem("dictionary"));
-        }
-        itemsHistory.push(entryData);
-        localStorage.setItem("dictionary", JSON.stringify(itemsHistory));
-
-        history.goBack();
-    };
 
     return (
         <div>
@@ -156,9 +137,13 @@ const AddWordPage = () => {
                         <IonLabel>Group</IonLabel>
 
                         <IonSelect value={group} placeholder="Select One" onIonChange={e => setGroup(e.detail.value)}>
-                            {items.map((item) => (<IonSelectOption value="female">{item.input}</IonSelectOption>
+                            {items.map((item) => {
+                                if (item.type === "group")
+                                    return <IonSelectOption value={item.id}>{item.input}</IonSelectOption>
+                            }
 
-                            ))};
+
+                            )};
 
 
                         </IonSelect>
@@ -171,7 +156,7 @@ const AddWordPage = () => {
 
                 <IonButton style={{ marginBottom: '20px' }}
                     onClick={() => {
-                        handleCheck(id, "dictionary");
+                        handleSave(id, "dictionary");
                         setUpdateWords(makeid(16));
                     }}
                 >
