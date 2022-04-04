@@ -44,21 +44,27 @@ const AddWordPage = () => {
 
 
     useEffect(() => {
-        translate({
-            free_api: true,
-            text: input,
-            source_lang: inputLanguage,
-            target_lang: outputLanguage,
-            auth_key: '9eb0ef9f-e4b3-7de8-bacf-e5c527362378:fx',
-            // All optional parameters available in the official documentation can be defined here as well.
-        })
-            .then(result => {
-                console.log(result.data.translations[0]);
-                setOutput(result.data.translations[0].text);
+        const timer = setTimeout(() => {
+            console.log("Translation")
+            translate({
+                free_api: true,
+                text: input,
+                source_lang: inputLanguage,
+                target_lang: outputLanguage,
+                auth_key: '9eb0ef9f-e4b3-7de8-bacf-e5c527362378:fx',
+                // All optional parameters available in the official documentation can be defined here as well.
             })
-            .catch(error => {
-                console.error(error)
-            });
+                .then(result => {
+                    console.log(result.data.translations[0]);
+                    setOutput(result.data.translations[0].text);
+                })
+                .catch(error => {
+                    console.error(error)
+                });
+        }, 1000);
+        return () => {
+            clearTimeout(timer);
+        };
     }, [input, inputLanguage, outputLanguage]
     );
 
