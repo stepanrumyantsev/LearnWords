@@ -26,10 +26,16 @@ import { UpdateWordsContext } from "../UpdateWordsContext";
 import { findByLabelText } from "@testing-library/react";
 
 const MainWordsList = (props) => {
+    console.log(props.items.length);
     const { UpdateWords, setUpdateWords } = useContext(UpdateWordsContext);
 
     if (!localStorage.getItem("dictionary") || localStorage.getItem("dictionary") === "[]") {
-        return <ExploreContainer />;
+        return <ExploreContainer text={"Start adding Items or Groups of Items"} />;
+    }
+
+    if (localStorage.getItem("dictionary") && props.items.length === 0) {
+        return <ExploreContainer text={"Nothing found"} />;
+
     }
 
 
