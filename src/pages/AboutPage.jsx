@@ -38,7 +38,7 @@ const AboutPage = () => {
                     <br />
 
                     <strong>Privacy Policy</strong> <p>
-                        Stepan Rumyantsev built the ToBuy app as
+                        Stepan Rumyantsev built the LearnWords app as
                         an Ad Supported app. This SERVICE is provided by
                         Stepan Rumyantsev at no cost and is intended for use as
                         is.
@@ -55,7 +55,7 @@ const AboutPage = () => {
                     </p> <p>
                         The terms used in this Privacy Policy have the same meanings
                         as in our Terms and Conditions, which are accessible at
-                        ToBuy unless otherwise defined in this Privacy Policy.
+                        LearnWords unless otherwise defined in this Privacy Policy.
                     </p> <p><strong>Information Collection and Use</strong></p> <p>
                         For a better experience, while using our Service, I
                         may require you to provide us with certain personally
@@ -156,7 +156,7 @@ const AboutPage = () => {
                         charge you for the app or its services without making it very
                         clear to you exactly what you’re paying for.
                     </p> <p>
-                        The ToBuy app stores and processes personal data that
+                        The LearnWords app stores and processes personal data that
                         you have provided to us, to provide my
                         Service. It’s your responsibility to keep your phone and
                         access to the app secure. We therefore recommend that you do
@@ -165,7 +165,7 @@ const AboutPage = () => {
                         official operating system of your device. It could make your
                         phone vulnerable to malware/viruses/malicious programs,
                         compromise your phone’s security features and it could mean
-                        that the ToBuy app won’t work properly or at all.
+                        that the LearnWords app won’t work properly or at all.
                     </p> <div><p>
                         The app does use third-party services that declare their
                         Terms and Conditions.

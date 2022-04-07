@@ -18,7 +18,7 @@ import { globeOutline, informationCircleOutline } from "ionicons/icons";
 
 const SettingsPage = () => {
     const history = useHistory();
-    //const [unitsValue, setUnitsValue] = useState(localStorage.getItem("toBuyUnits") ? localStorage.getItem("toBuyUnits") : "metric");
+    //const [unitsValue, setUnitsValue] = useState(localStorage.getItem("LearnWordsUnits") ? localStorage.getItem("LearnWordsUnits") : "metric");
 
     return (
         <div>
