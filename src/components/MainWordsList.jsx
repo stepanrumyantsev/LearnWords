@@ -23,7 +23,6 @@ import {
 } from "ionicons/icons";
 import { makeid } from "../generateId";
 import { UpdateWordsContext } from "../UpdateWordsContext";
-import { findByLabelText } from "@testing-library/react";
 
 const MainWordsList = (props) => {
     console.log(props.items.length);

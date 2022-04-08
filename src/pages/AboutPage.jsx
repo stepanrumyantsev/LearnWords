@@ -8,8 +8,7 @@ import {
     IonTitle,
     IonToolbar,
 } from "@ionic/react";
-import React, { useState, useContext, useEffect } from "react";
-import { useHistory, useParams } from "react-router";
+import { useHistory } from "react-router";
 
 const AboutPage = () => {
     const history = useHistory();
