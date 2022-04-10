@@ -43,50 +43,8 @@ const MainWordsList = (props) => {
     const handleDelete = (id, Location) => {
         const items = JSON.parse(localStorage.getItem(Location) || "{}");
         if (items.length) {
-            let valuesToDelete = [];
-            items.forEach(function (index, value) {
-                if (items[value].id.includes(id) || items[value].parent.includes(id)) {
-                    valuesToDelete.push(value);
-
-                }
-
-            });
-            console.log(valuesToDelete);
-
-            var filtered = items.filter(function (value, index, arr) {
-
-                return
-            });
-
-            /*for (var i = 0; i < items.length; i++) {
-
-                if (items[i].parent === id) {
-                    items.splice(i, 1);
-                }
-
-            }*/
-
-
-
-            /*items.forEach(function (index, value) {
-
-                if (items[value].id.includes(id)) {
-                    console.log(items[value])
-                    items.splice(value, 1);
-
-                }
-            });
-
-            items.forEach(function (index, value) {
-
-                if (items[value].parent.includes(id)) {
-                    console.log(items[value])
-                    items.splice(value, 1);
-
-                }
-            });*/
-
-            localStorage.setItem(Location, JSON.stringify(items));
+            const result = items.filter(item => !(item.id.includes(id) || item.parent.includes(id)));
+            localStorage.setItem(Location, JSON.stringify(result));
         }
     };
 
