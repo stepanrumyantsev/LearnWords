@@ -52,16 +52,19 @@ const MainWordsList = (props) => {
         let flag = "";
         switch (lang) {
             case "EN":
-                return <span> &#127468; &#127463; </span>;
+                return <span>&#127468; &#127463; </span>;
 
             case "DE":
                 return <span>&#127465; &#127466; </span>;
 
             case "RU":
-                return <span> &#127479; &#127482; </span>;
+                return <span>&#127479; &#127482; </span>;
 
             case "ES":
-                return <span>&#127466; &#127480;</span>;
+                return <span>&#127466; &#127480; </span>;
+
+            case "FR":
+                return <span>&#127467; &#127479; </span>
 
 
 

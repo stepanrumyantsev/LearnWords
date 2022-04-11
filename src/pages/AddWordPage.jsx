@@ -45,7 +45,7 @@ const AddWordPage = () => {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            console.log("Translation")
+
             translate({
                 free_api: true,
                 text: input,
@@ -55,7 +55,7 @@ const AddWordPage = () => {
                 // All optional parameters available in the official documentation can be defined here as well.
             })
                 .then(result => {
-                    console.log(result.data.translations[0]);
+
                     setOutput(result.data.translations[0].text);
                 })
                 .catch(error => {
@@ -115,6 +115,7 @@ const AddWordPage = () => {
                             <IonSelectOption value="EN">&#127468; &#127463; EN</IonSelectOption>
                             <IonSelectOption value="ES">&#127466; &#127480; ES</IonSelectOption>
                             <IonSelectOption value="RU">&#127479; &#127482; RU</IonSelectOption>
+                            <IonSelectOption value="FR">&#127467; &#127479; FR</IonSelectOption>
                         </IonSelect>
                         <IonInput
                             placeholder={"Type word or sentence"}
@@ -130,6 +131,7 @@ const AddWordPage = () => {
                             <IonSelectOption value="EN">&#127468; &#127463; EN</IonSelectOption>
                             <IonSelectOption value="ES">&#127466; &#127480; ES</IonSelectOption>
                             <IonSelectOption value="RU">&#127479; &#127482; RU</IonSelectOption>
+                            <IonSelectOption value="FR">&#127467; &#127479; FR</IonSelectOption>
                         </IonSelect>
                         <IonInput
                             placeholder={"Translation"}
@@ -145,7 +147,7 @@ const AddWordPage = () => {
                         <IonSelect value={group} placeholder="Select One" onIonChange={e => setGroup(e.detail.value)}>
                             {items.map((item) => {
                                 if (item.type === "group")
-                                    return <IonSelectOption value={item.id}>{item.input}</IonSelectOption>
+                                    return <IonSelectOption key={item.id} value={item.id}>{item.input}</IonSelectOption>
                             }
 
 
