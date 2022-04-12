@@ -18,8 +18,6 @@ import "./MainWordsList.css";
 import ExploreContainer from "./ExploreContainer";
 import {
     trash as trashIcon,
-    checkmarkOutline as checkmarkIcon,
-    arrowUndoOutline as undoIcon,
 } from "ionicons/icons";
 import { makeid } from "../generateId";
 import { UpdateWordsContext } from "../UpdateWordsContext";
@@ -38,8 +36,6 @@ const MainWordsList = (props) => {
     }
 
 
-
-
     const handleDelete = (id, Location) => {
         const items = JSON.parse(localStorage.getItem(Location) || "{}");
         if (items.length) {
@@ -49,7 +45,7 @@ const MainWordsList = (props) => {
     };
 
     const langToFlag = (lang) => {
-        let flag = "";
+
         switch (lang) {
             case "EN":
                 return <span>&#127468; &#127463; </span>;
@@ -93,50 +89,6 @@ const MainWordsList = (props) => {
         }
     }
 
-    const areAllChildrenChecked = (id) => {
-        let allChecked = true;
-        let counter = 0;
-        const items = JSON.parse(localStorage.getItem("dictionary") || "{}");
-
-        if (items.length) {
-            items.forEach(function (index, value) {
-                if (items[value].parent.includes(id)) {
-                    counter = counter + 1;
-
-
-                    if (items[value].checked === "false") {
-                        allChecked = false;
-                    }
-                }
-
-
-            });
-            if (counter === 0) allChecked = false;
-            return allChecked;
-
-
-        }
-
-
-
-    }
-
-    const handleCheck = (id, Location) => {
-        const items = JSON.parse(localStorage.getItem(Location) || "{}");
-        if (items.length) {
-            items.forEach(function (index, value) {
-                if (items[value].id.includes(id)) {
-                    if (items[value].checked === "true") {
-                        items[value].checked = "false";
-                        localStorage.setItem(Location, JSON.stringify(items));
-                    } else {
-                        items[value].checked = "true";
-                        localStorage.setItem(Location, JSON.stringify(items));
-                    }
-                }
-            });
-        }
-    };
 
     return (
         <IonList>
