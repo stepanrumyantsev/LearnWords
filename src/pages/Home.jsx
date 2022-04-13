@@ -9,7 +9,6 @@ import {
   IonSearchbar
 } from '@ionic/react';
 import './Home.css';
-//import { addOutline } from "ionicons/icons";
 import MainWordsList from '../components/MainWordsList';
 import { UpdateWordsContext } from '../UpdateWordsContext'
 import { PopOverHome } from '../components/PopOverHome';

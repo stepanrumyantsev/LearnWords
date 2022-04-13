@@ -13,15 +13,12 @@ import {
     IonInput,
     IonSelect,
     IonSelectOption,
-    IonTextarea,
-    IonItemDivider
 } from "@ionic/react";
 import { saveOutline, trashOutline } from "ionicons/icons";
 import React, { useState, useContext, useEffect } from "react";
 import { useHistory, useParams } from "react-router";
 import { UpdateWordsContext } from "../UpdateWordsContext";
 import { makeid } from "../generateId";
-import axios from 'axios';
 import deepl from "deepl"
 
 const AddWordPage = () => {
@@ -33,11 +30,8 @@ const AddWordPage = () => {
     const { id } = useParams();
     const [input, setInput] = useState("");
     const [output, setOutput] = useState("");
-    const [parent, setParent] = useState(id);
-    //const [amount, setAmount] = useState(1.0);
     const [inputLanguage, setInputLanguage] = useState(localStorage.getItem("inputLang") ? localStorage.getItem("inputLang") : "DE");
     const [outputLanguage, setOutputLanguage] = useState(localStorage.getItem("outputLang") ? localStorage.getItem("outputLang") : "EN");
-    //const [notes, setNotes] = useState("");
     const { setUpdateWords } = useContext(UpdateWordsContext);
     const [group, setGroup] = useState(id);
     const items = JSON.parse(localStorage.getItem("dictionary") || "{}");
