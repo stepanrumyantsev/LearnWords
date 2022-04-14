@@ -7,14 +7,11 @@ import {
     IonItem,
     IonLabel,
     IonPage,
-    IonSelect,
-    IonSelectOption,
     IonTitle,
     IonToolbar,
 } from "@ionic/react";
-import React, { useState, useContext, useEffect } from "react";
-import { useHistory, useParams } from "react-router";
-import { globeOutline, informationCircleOutline } from "ionicons/icons";
+import { useHistory } from "react-router";
+import { informationCircleOutline } from "ionicons/icons";
 
 const SettingsPage = () => {
     const history = useHistory();

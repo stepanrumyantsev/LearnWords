@@ -11,13 +11,11 @@ import {
     IonItem,
     IonLabel,
     IonInput,
-    IonSelect,
-    IonSelectOption,
     IonItemDivider,
     IonTextarea
 } from "@ionic/react";
-import { saveOutline, trashOutline } from "ionicons/icons";
-import React, { useState, useContext, useEffect } from "react";
+import { trashOutline } from "ionicons/icons";
+import { useState, useContext, useEffect } from "react";
 import { useHistory, useParams } from "react-router";
 import { makeid } from "../generateId";
 import { UpdateWordsContext } from "../UpdateWordsContext";
