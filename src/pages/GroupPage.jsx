@@ -45,7 +45,7 @@ const GroupPage = () => {
                 }
             });
         }
-    }, []);
+    }, [id]);
 
     useEffect(() => {
         const items = JSON.parse(localStorage.getItem("dictionary") || "{}");
@@ -60,7 +60,7 @@ const GroupPage = () => {
             });
             setChildren(childrenArray);
         }
-    }, [UpdateWords]);
+    }, [UpdateWords, id]);
 
     const getItemFromStorage = (id, Location) => {
         const items = JSON.parse(localStorage.getItem(Location) || "{}");
