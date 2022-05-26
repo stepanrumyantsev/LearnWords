@@ -13,11 +13,8 @@ import {
     IonInput,
 } from "@ionic/react";
 import { saveOutline, trashOutline } from "ionicons/icons";
-import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
-import React, { useState, useContext } from "react";
-import { useHistory, useParams } from "react-router";
+import { useState, useContext } from "react";
+import { useHistory } from "react-router";
 import { makeid } from "../generateId";
 import { UpdateWordsContext } from "../UpdateWordsContext";
 

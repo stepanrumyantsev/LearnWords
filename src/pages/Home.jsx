@@ -8,7 +8,6 @@ import {
   IonToolbar,
   IonSearchbar
 } from '@ionic/react';
-import './Home.css';
 import MainWordsList from '../components/MainWordsList';
 import { UpdateWordsContext } from '../UpdateWordsContext'
 import { PopOverHome } from '../components/PopOverHome';

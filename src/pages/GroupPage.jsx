@@ -8,14 +8,11 @@ import {
     IonPage,
     IonTitle,
     IonToolbar,
-    IonItem,
-    IonLabel,
-    IonInput,
     IonFab,
     IonFabButton,
 } from "@ionic/react";
-import { saveOutline, trashOutline, addOutline } from "ionicons/icons";
-import React, { useState, useContext, useEffect } from "react";
+import { addOutline } from "ionicons/icons";
+import { useState, useContext, useEffect } from "react";
 import { useHistory, useParams } from "react-router";
 import { UpdateWordsContext } from "../UpdateWordsContext";
 import MainWordsList from "../components/MainWordsList";

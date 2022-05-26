@@ -15,11 +15,11 @@ import {
     IonSelectOption,
 } from "@ionic/react";
 import { saveOutline, trashOutline } from "ionicons/icons";
-import React, { useState, useContext, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useHistory, useParams } from "react-router";
 import { UpdateWordsContext } from "../UpdateWordsContext";
 import { makeid } from "../generateId";
-import deepl from "deepl"
+
 
 const AddWordPage = () => {
 
