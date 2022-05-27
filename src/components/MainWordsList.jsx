@@ -24,7 +24,7 @@ import { UpdateWordsContext } from "../UpdateWordsContext";
 
 const MainWordsList = (props) => {
 
-    const { UpdateWords, setUpdateWords } = useContext(UpdateWordsContext);
+    const { setUpdateWords } = useContext(UpdateWordsContext);
 
     if (!localStorage.getItem("dictionary") || localStorage.getItem("dictionary") === "[]") {
         return <ExploreContainer text={"Start adding Items or Groups of Items"} />;
@@ -113,6 +113,7 @@ const MainWordsList = (props) => {
                         lines={"none"}
 
                         {...(item.type === "group" && { routerLink: `/group/${item.id}`, button: true })}
+                        {...(item.type === "item" && { routerLink: `/item/${item.id}`, button: true })}
                         {...((item.type === "item" && isPlatform("ios")) ? { button: false } : { button: true })}
 
 
