@@ -55,7 +55,7 @@ const App = () => {
             <Route exact path="/additem/:id" component={AddWordPage} />
             <Route exact path="/addgroup/:id" component={AddGroupPage} />
             <Route exact path="/group/:id" component={GroupPage} />
-            <Route exact path="/item/:id" component={WordPage} />
+            <Route exact path="/item/:id" component={AddWordPage} />
             <Route exact path="/settings/" component={SettingsPage} />
             <Route exact path="/about/" component={AboutPage} />
             <Route exact path="/home/" component={Home} />

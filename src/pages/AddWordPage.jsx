@@ -28,6 +28,9 @@ const AddWordPage = () => {
 
     const history = useHistory();
     const { id } = useParams();
+    const [item, setItem] = useState({
+        title: "",
+    });
     const [input, setInput] = useState("");
     const [output, setOutput] = useState("");
     const [inputLanguage, setInputLanguage] = useState(localStorage.getItem("inputLang") ? localStorage.getItem("inputLang") : "DE");
@@ -82,6 +85,24 @@ const AddWordPage = () => {
 
         history.goBack();
     };
+
+    useEffect(() => {
+        const items = JSON.parse(localStorage.getItem("dictionary") || "{}");
+
+        if (items.length) {
+            items.forEach(function (index, value) {
+                if (items[value].id.includes(id)) {
+
+                    setItem(items[value]);
+                    setInput(items[value].input);
+                    setOutput(items[value].output);
+                    setInputLanguage(items[value].inputLanguage);
+                    setOutputLanguage(items[value].outputLanguage);
+
+                }
+            });
+        }
+    }, []);
 
 
     return (
