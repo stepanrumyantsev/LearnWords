@@ -31,6 +31,7 @@ const AddWordPage = () => {
     const [item, setItem] = useState({
         title: "",
     });
+    const [isAddWord, setIsAddWord] = useState((id === "20"));
     const [input, setInput] = useState("");
     const [output, setOutput] = useState("");
     const [inputLanguage, setInputLanguage] = useState(localStorage.getItem("inputLang") ? localStorage.getItem("inputLang") : "DE");
@@ -64,6 +65,31 @@ const AddWordPage = () => {
         };
     }, [input, inputLanguage, outputLanguage]
     );
+
+    const handleEdit = (id, Location) => {
+        const items = JSON.parse(localStorage.getItem(Location) || "{}");
+        if (items.length) {
+            items.forEach(function (index, value) {
+                if (items[value].id.includes(id)) {
+                    items[value].input = input;
+                    items[value].output = output;
+                    items[value].inputLanguage = inputLanguage;
+                    items[value].outputLanguage = outputLanguage;
+                    items[value].parent = group;
+
+
+                    localStorage.setItem(Location, JSON.stringify(items));
+                }
+            });
+        }
+    };
+
+    useEffect(() => {
+        handleEdit(item.id, "dictionary");
+        setUpdateWords(makeid(16));
+
+
+    }, [input, output, inputLanguage, outputLanguage, group]);
 
     const handleSave = (id, Location) => {
         const entryData = {
@@ -99,6 +125,10 @@ const AddWordPage = () => {
                     setInputLanguage(items[value].inputLanguage);
                     setOutputLanguage(items[value].outputLanguage);
 
+                }
+
+                else if (items[value].id.includes(id) && items[value].type === "group") {
+                    setIsAddWord(true);
                 }
             });
         }
@@ -177,7 +207,7 @@ const AddWordPage = () => {
 
                 </IonContent>
 
-                <IonButton style={{ marginBottom: '20px' }}
+                {isAddWord && <IonButton style={{ marginBottom: '20px' }}
                     onClick={() => {
                         handleSave(id, "dictionary");
                         setUpdateWords(makeid(16));
@@ -185,7 +215,7 @@ const AddWordPage = () => {
                 >
                     <IonIcon icon={saveOutline} />
                     &nbsp;Save
-                </IonButton>
+                </IonButton>}
             </IonPage>
         </div>
     );
