@@ -54,11 +54,7 @@ const AddGroupPage = () => {
                             <IonBackButton />
                         </IonButtons>
                         <IonTitle>{title || ""}</IonTitle>
-                        <IonButtons slot="end">
-                            <IonButton onClick={() => { }}>
-                                <IonIcon icon={trashOutline} slot="icon-only" />
-                            </IonButton>
-                        </IonButtons>
+
                     </IonToolbar>
                 </IonHeader>
 

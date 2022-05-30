@@ -124,6 +124,7 @@ const AddWordPage = () => {
                     setOutput(items[value].output);
                     setInputLanguage(items[value].inputLanguage);
                     setOutputLanguage(items[value].outputLanguage);
+                    setGroup(items[value].parent);
 
                 }
 
@@ -132,7 +133,7 @@ const AddWordPage = () => {
                 }
             });
         }
-    }, []);
+    }, [id]);
 
 
     return (
@@ -190,7 +191,7 @@ const AddWordPage = () => {
                         <IonLabel>Group</IonLabel>
 
                         <IonSelect value={group} placeholder="Select One" onIonChange={e => setGroup(e.detail.value)}>
-                            {items.map((item) => {
+                            {items.map && items.map((item) => {
                                 if (item.type === "group")
                                     return <IonSelectOption key={item.id} value={item.id}>{item.input}</IonSelectOption>
                             }

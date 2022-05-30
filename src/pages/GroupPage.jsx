@@ -16,7 +16,7 @@ import { useState, useContext, useEffect } from "react";
 import { useHistory, useParams } from "react-router";
 import { UpdateWordsContext } from "../UpdateWordsContext";
 import MainWordsList from "../components/MainWordsList";
-import { arrowBackOutline } from "ionicons/icons";
+import { arrowBackOutline, trashOutline } from "ionicons/icons";
 
 const GroupPage = () => {
 
@@ -88,6 +88,11 @@ const GroupPage = () => {
                             </IonButton>
                         </IonButtons>
                         <IonTitle>{item.input || ""}</IonTitle>
+                        <IonButtons slot="end">
+                            <IonButton onClick={() => { }}>
+                                <IonIcon icon={trashOutline} slot="icon-only" />
+                            </IonButton>
+                        </IonButtons>
 
                     </IonToolbar>
                 </IonHeader>
