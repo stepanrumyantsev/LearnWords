@@ -2,12 +2,11 @@ import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
-import AddWordPage from './pages/AddWordPage';
+import WordPage from './pages/WordPage';
 import AddGroupPage from './pages/AddGroupPage';
 import { UpdateWordsContext } from "./UpdateWordsContext";
 import { useState } from "react";
 import GroupPage from './pages/GroupPage';
-import WordPage from './pages/WordPage';
 import SettingsPage from './pages/SettingsPage';
 import AboutPage from './pages/AboutPage';
 
@@ -52,10 +51,10 @@ const App = () => {
               <Home />
             </Route>
 
-            <Route exact path="/additem/:id" component={AddWordPage} />
+            <Route exact path="/additem/:id" component={WordPage} />
             <Route exact path="/addgroup/:id" component={AddGroupPage} />
             <Route exact path="/group/:id" component={GroupPage} />
-            <Route exact path="/item/:id" component={AddWordPage} />
+            <Route exact path="/item/:id" component={WordPage} />
             <Route exact path="/settings/" component={SettingsPage} />
             <Route exact path="/about/" component={AboutPage} />
             <Route exact path="/home/" component={Home} />
