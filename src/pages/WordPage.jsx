@@ -21,7 +21,7 @@ import { UpdateWordsContext } from "../UpdateWordsContext";
 import { makeid } from "../generateId";
 
 
-const AddWordPage = () => {
+const WordPage = () => {
 
 
     const translate = require("deepl");
@@ -223,4 +223,4 @@ const AddWordPage = () => {
     );
 };
 
-export default AddWordPage;
+export default WordPage;
