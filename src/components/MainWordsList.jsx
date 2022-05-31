@@ -38,11 +38,6 @@ const MainWordsList = (props) => {
 
 
 
-
-
-
-
-
     return (
         <IonList>
             {props.items.map((item) => (

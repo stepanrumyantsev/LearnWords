@@ -19,6 +19,7 @@ import { useState, useContext, useEffect } from "react";
 import { useHistory, useParams } from "react-router";
 import { UpdateWordsContext } from "../UpdateWordsContext";
 import { makeid } from "../generateId";
+import { handleDelete } from "../mainfunctions";
 
 
 const WordPage = () => {
@@ -145,11 +146,11 @@ const WordPage = () => {
                             <IonBackButton />
                         </IonButtons>
                         <IonTitle>{input || ""}</IonTitle>
-                        <IonButtons slot="end">
-                            <IonButton onClick={() => { }}>
+                        {!isAddWord && <IonButtons slot="end">
+                            <IonButton onClick={() => { handleDelete(id, "dictionary"); setUpdateWords(makeid(16)); history.goBack(); }}>
                                 <IonIcon icon={trashOutline} slot="icon-only" />
                             </IonButton>
-                        </IonButtons>
+                        </IonButtons>}
                     </IonToolbar>
                 </IonHeader>
 
